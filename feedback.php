@@ -5,7 +5,7 @@ $sql= 'SELECT * FROM feedback';
 $result = mysqli_query($conn, $sql);
 $feedback = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
-<h2>Feedback</h2>
+<h2>Dashboard</h2>
 
 <?php if(empty($feedback)):?>
   <p class="lead mt3"> There is no feedback</p>
@@ -14,9 +14,20 @@ $feedback = mysqli_fetch_all($result, MYSQLI_ASSOC);
   <?php foreach($feedback as $item): ?>
     <div class="card my-3 w-75">
      <div class="card-body text-center">
-      <?php echo $item['body']; ?>
+      <?php ?> First Name: <?php echo  $item['name']; ?>
+  </br>
+      <?php ?> Last Name: <?php echo  $item['lname']; ?>
+      </br>
+      <?php ?> Date of Birth: <?php echo  $item['dob']; ?>
+      </br>
+      <?php ?> Gender: <?php echo  $item['gender']; ?>
+      </br>
+      <?php ?> Email: <?php echo  $item['email']; ?>
+      </br>
+      <?php ?> Telephone Number: <?php echo  $item['phone']; ?>
+      
       <div class="text-secondary mt-2"></div>
-      By <?php echo $item['name']; ?> ON <?php echo $item['date']; ?>
+      <?php ?> ON <?php echo $item['date']; ?>
       </div>
    </div>
    <?php endforeach; ?>
